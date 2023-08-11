@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title>NyanKitty</title>
+<meta charset="utf-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no"/>
+<meta name="description" content="A simple game for a simple cat.. errr.. I mean about a cat, a game for humans." />
+<link rel="shortcut icon" href="kitty.ico" type="image/x-icon" />
+<link rel="icon" href="kitty.ico" />
+<meta property="og:title" content="Nyan Kitty" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="http://nyankitty.parseapp.com" />
+<meta property="og:image" content="http://nyankitty.parseapp.com/icon.png" />
+<meta property="og:description" content="A simple game for a simple cat.. errr.. I mean about a cat, a game for humans." />
+<meta property="og:site_name" content="Nyan Kitty" />
+<meta name="twitter:card" content="A simple game for a simple cat.. errr.. I mean about a cat, a game for humans."><!--summary-->
+<meta name="twitter:site" content="http://nyankitty.parseapp.com">
+<meta name="twitter:title" content="Nyan Kitty">
+<meta name="twitter:description" content="A simple game for a simple cat.. errr.. I mean about a cat, a game for humans.">
+<meta name="twitter:creator" content="@kearlsaint">
+<meta name="twitter:image" content="http://nyankitty.parseapp.com/icon.png">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black">
+<meta name="apple-mobile-web-app-title" content="NyanKitty">
+<meta name="format-detection" content="telephone=no">
+<link rel="apple-touch-icon" href="ios/.png" />
+<!--iPhone--><link rel="apple-touch-icon" sizes="57x57" href="ios/57.png" />
+<!--iPad--><link rel="apple-touch-icon" sizes="72x72" href="ios/72.png" />
+<!--iPhone(retina)--><link rel="apple-touch-icon" sizes="114x114" href="ios/114.png" />
+<!--iPad(retina)--><link rel="apple-touch-icon" sizes="144x144" href="ios/144.png" />
+<!-- iOS 6 & 7 iPad (retina, portrait) -->
+<link href="ios/splash/apple-touch-startup-image-1536x2008.jpg"
+			media="(device-width: 768px) and (device-height: 1024px)
+				 and (orientation: portrait)
+				 and (-webkit-device-pixel-ratio: 2)"
+			rel="apple-touch-startup-image">
+<!-- iOS 6 & 7 iPad (retina, landscape) -->
+<link href="ios/splash/apple-touch-startup-image-1496x2048.jpg"
+			media="(device-width: 768px) and (device-height: 1024px)
+				 and (orientation: landscape)
+				 and (-webkit-device-pixel-ratio: 2)"
+			rel="apple-touch-startup-image">
+<!-- iOS 6 iPad (portrait) -->
+<link href="ios/splash/apple-touch-startup-image-768x1004.jpg"
+			media="(device-width: 768px) and (device-height: 1024px)
+				 and (orientation: portrait)
+				 and (-webkit-device-pixel-ratio: 1)"
+			rel="apple-touch-startup-image">
+<!-- iOS 6 iPad (landscape) -->
+<link href="ios/splash/apple-touch-startup-image-748x1024.jpg"
+			media="(device-width: 768px) and (device-height: 1024px)
+				 and (orientation: landscape)
+				 and (-webkit-device-pixel-ratio: 1)"
+			rel="apple-touch-startup-image">
+<!-- iOS 6 & 7 iPhone 5 -->
+<link href="ios/splash/apple-touch-startup-image-640x1096.jpg"
+			media="(device-width: 320px) and (device-height: 568px)
+				 and (-webkit-device-pixel-ratio: 2)"
+			rel="apple-touch-startup-image">
+<!-- iOS 6 & 7 iPhone (retina) -->
+<link href="ios/splash/apple-touch-startup-image-640x920.jpg"
+			media="(device-width: 320px) and (device-height: 480px)
+				 and (-webkit-device-pixel-ratio: 2)"
+			rel="apple-touch-startup-image">
+<!-- iOS 6 iPhone -->
+<link href="ios/splash/apple-touch-startup-image-320x460.jpg"
+			media="(device-width: 320px) and (device-height: 480px)
+				 and (-webkit-device-pixel-ratio: 1)"
+			rel="apple-touch-startup-image">
+<link rel="stylesheet" href="UI.css" />
+<script src="phonegap.js"></script>
+</head>
+<body>
+<div id="UI-Update-Wrapper">
+	<div id="UI-Update">
+		<p>Updating game files...</p>
+		<p id="UI-Update-Count">- files</p>
+	</div>
+</div>
+<div id="UI">
+	<div id="UI-Game"></div>
+	<div id="UI-Menus">
+		<div id="UI-Preloader">
+			Loading...
+		</div>
+		<div id="UI-Loader">
+			Hmm...
+		</div>
+		<div id="UI-NameInput">
+			<p>Hey there! Seems like we haven't met yet. My name's Kitty. Wut's yours?</p>
+			<input id="UIInput-Name" type="text" placeholder="erhmm" value="Chloe" />
+			<button id="UIButton-AcceptName">OK</button>
+		</div>
+		<div id="UI-Menu" class="hidden">
+			<h1>NYAN<br/>KITTY</h1>
+			<button id="UIButton-Play">PLAY</button>
+			<button id="UIButton-Help">HELP</button>
+		</div>
+		<div id="UI-Info">
+			<span>SCORE:<span id="UI-Info-Score">0</span></span>
+			<span style="display:none">LIVES:<span id="UI-Info-Lives">9</span></span>
+		</div>
+		<div id="UI-Pause">
+			<button id="UIButton-Sound">&#9835;</button>
+			<button id="UIButton-Pause">II</button>
+		</div>
+		<div id="UI-Instructions">
+			<p style="text-align:center;font-size:18px">KITTYDEX</p>
+			<!--p>AVOID METEORS AT ALL COST!</p-->
+			<p>DODGE TO SURVIVE!</p>
+			<p>TAP TO SPACE JUMP!</p>
+			<p>Y.O.L.O.</p>
+			<!--p>ROCKS KILL A CAT!</p>
+			<p>KITTY FOODS ARE KITTY LIVES!</p-->
+			<button id="UIButton-CloseHelp">CLOSE</button>
+		</div>
+		<div id="UI-PauseMenu">
+			<button id="UIButton-Resume">RESUME</button>
+			<button id="UIButton-Restart">RESTART</button>
+			<button id="UIButton-GoHelp">HELP</button>
+		</div>
+		<div id="UI-GameOver">
+			<h1>GAME<br/>OVER</h1>
+			<div>
+				<p>SCORE:<br/>
+					<span id="UI-FinalScore">2342</span>
+				</p>
+				<p>BEST:<i id="UI-NewBest">NEW!</i><br/>
+					<span id="UI-BestScore">2342</span>
+				</p>
+				<p>RANK:<br/>
+					<span id="UI-FinalRank">KITTY</span>
+					<span id="UI-FinalRankImage">
+						<img src="game/sprites/gif/dub.gif" />
+					</span>
+				</p>
+				<button id="UIButton-Retry">RETRY</button>
+				<!--button id="UIButton-Tweet">TWEET</button>
+				<button id="UIButton-Share">SHARE</button>
+				<button id="UIButton-SubmitScore">SUBMIT SCORE</button-->
+			</div>
+		</div>
+	</div>
+</div>
+<script src="shim.js"></script>
+<script src="config.js"></script>
+<script src="bitengine.js"></script>
+<script src="game.js"></script>
+</body>
+</html>
